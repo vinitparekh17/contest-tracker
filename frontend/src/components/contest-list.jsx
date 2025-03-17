@@ -107,7 +107,7 @@ export default function ContestList() {
 
       {filteredContests.length === 0 ? (
         <div className="flex flex-col items-center justify-center h-64 text-center">
-          <h3 className="text-xl font-medium mb-2">No upcoming contests</h3>
+          <h3 className="text-xl font-medium mb-2 dark:text-gray-200">No contests found</h3>
           <p className="text-gray-500 mb-4">
             {selectedPlatforms.length > 0
               ? `No contests found for ${selectedPlatforms.join(", ")}`
