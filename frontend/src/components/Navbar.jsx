@@ -1,7 +1,7 @@
 import { useState } from "react"
 import ThemeSwitcher from "./themeSwitcher"
 
-export default function Navbar({ bookmarkCount }) {
+export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
@@ -61,11 +61,6 @@ export default function Navbar({ bookmarkCount }) {
           className="text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 flex items-center transition-colors"
         >
           Bookmarks
-          {bookmarkCount > 0 && (
-            <span className="ml-2 inline-flex items-center justify-center w-5 h-5 text-xs font-medium bg-blue-100 dark:bg-blue-800 text-blue-800 dark:text-blue-100 rounded-full">
-              {bookmarkCount}
-            </span>
-          )}
         </a>
         <a href="/about" className="text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
           About

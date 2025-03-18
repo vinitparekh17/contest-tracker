@@ -8,7 +8,11 @@ export default function ContestCard({
     timeRemaining
 }) {
     return (
-        <div className="overflow-hidden rounded-lg shadow-md transition-shadow duration-300 hover:shadow-lg bg-white dark:bg-neutral-900 dark:hover:bg-gray-800 flex flex-col min-h-full">
+        <div 
+        className="overflow-hidden rounded-lg shadow-md transition-all duration-300 
+        hover:shadow-lg bg-white dark:bg-neutral-900
+        flex flex-col min-h-full border border-gray-200 dark:border-neutral-600">
+
             {/* Card Header */}
             <div className="p-4">
                 <div className="flex justify-between items-start">
@@ -45,11 +49,11 @@ export default function ContestCard({
                 <div className="space-y-2">
                     {formatedDate !== "Invalid Date" &&
                         <div className="flex items-center text-sm text-gray-600 dark:text-gray-300">
-                        <svg className="mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        <span>{formatedDate}</span>
-                    </div>
+                            <svg className="mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span>{formatedDate}</span>
+                        </div>
                     }
                     <div className="flex items-center text-sm text-gray-600 dark:text-gray-300">
                         <svg className="mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
