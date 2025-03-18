@@ -78,7 +78,7 @@ export async function fetchCodeChefContests() {
     for (const selector of possibleTableSelectors) {
       console.log(`Trying selector: ${selector}`);
       const hasElements = await page.evaluate((sel) => {
-        return document.querySelectorAll(sel).length > 0;
+        return document.querySelector(sel) !== null && document.querySelectorAll(sel).length > 0;
       }, selector);
       
       if (hasElements) {
@@ -97,34 +97,62 @@ export async function fetchCodeChefContests() {
     
     // Extract contest details with the working selector
     const contests = await page.evaluate((selector) => {
-      const rows = Array.from(document.querySelectorAll(selector));
-      return rows.map(row => {
-        // For standard table structure
-        if (row.querySelectorAll("td").length > 0) {
-          const cols = row.querySelectorAll("td");
-          if (cols.length < 4) return null;
-          
-          return {
-            title: cols[1]?.innerText?.trim() || "Unknown",
-            startTime: cols[2]?.innerText?.trim() || "Unknown",
-            duration: cols[3]?.innerText?.trim() || "Unknown",
-            url: `${cols[1]?.querySelector("a")?.getAttribute("href") || "https://www.codechef.com/contests"}`
-          };
-        } 
-        // For div-based table structure
-        else {
-          const cells = Array.from(row.children);
-          if (cells.length < 4) return null;
-          
-          return {
-            title: cells[1]?.innerText?.trim() || "Unknown",
-            startTime: cells[2]?.innerText?.trim() || "Unknown",
-            duration: cells[3]?.innerText?.trim() || "Unknown",
-            link: `https://www.codechef.com${cells[1]?.querySelector("a")?.getAttribute("href") || ""}`
-          };
+      try {
+        // Get all potential rows, fallback to empty array if selector fails
+        const rows = Array.from(document.querySelectorAll(selector)).filter(row => row); // Remove null/undefined
+        if (!rows.length) {
+          console.warn('No rows found for selector:', selector);
+          return [];
         }
-      }).filter(Boolean);
-    }, selectedSelector);
+    
+        return rows.map((row, index) => {
+          try {
+            // Check if row has table cells (td), skip if not a valid row
+            const cells = row.querySelectorAll('td');
+            if (!cells.length) {
+              console.warn(`Row ${index} has no <td> elements, skipping`);
+              return null;
+            }
+    
+            // Ensure we have enough columns, fallback gracefully if not
+            if (cells.length < 4) {
+              console.warn(`Row ${index} has fewer than 4 columns: ${cells.length}`);
+              return {
+                title: cells[1]?.innerText?.trim() || 'Unknown',
+                startTime: cells[2]?.innerText?.trim().split('\n\n')[0] || 'Unknown',
+                duration: 'Unknown', // Default since we can't trust indices
+                url: 'https://www.codechef.com/contests' // Safe default
+              };
+            }
+    
+            // Extract data with fallbacks
+            const titleCell = cells[1];
+            const startTimeCell = cells[2];
+            const durationCell = cells[3];
+    
+            return {
+              title: titleCell?.innerText?.trim() || 'Unknown',
+              startTime: startTimeCell?.innerText?.trim().split('\n\n')[0] || 'Unknown',
+              duration: durationCell?.innerText?.trim() || 'Unknown',
+              url: titleCell?.querySelector('a')?.getAttribute('href') 
+                ? `https://www.codechef.com${titleCell.querySelector('a').getAttribute('href')}` 
+                : 'https://www.codechef.com/contests'
+            };
+          } catch (rowError) {
+            console.error(`Error processing row ${index}:`, rowError.message);
+            return {
+              title: 'Unknown',
+              startTime: 'Unknown',
+              duration: 'Unknown',
+              url: 'https://www.codechef.com/contests'
+            };
+          }
+        }).filter(contest => contest !== null); // Remove skipped rows
+      } catch (error) {
+        console.error('Failed to evaluate contests:', error.message);
+        return []; // Return empty array on total failure
+      }
+    });
     
     console.log(`Successfully extracted ${contests.length} contests`);
     return contests;
