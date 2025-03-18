@@ -1,69 +1,12 @@
-export default function ContestCard({ contest, toggleBookmark, isBookmarked }) {
+import { platformColors } from "../utils/platformColors";
 
-    const platformColors = {
-        leetcode: { bg: "bg-yellow-500", text: "text-black" },
-        codeforces: { bg: "bg-blue-500", text: "text-white" },
-        codechef: { bg: "bg-green-500", text: "text-white" }
-    }
-
-    const formatDate = (date) => {
-        try {
-            const dateString = date.toString();
-            // Remove extra newlines and trim spaces
-            const cleanedDate = dateString.replace(/\n+/g, " ").trim();
-
-            // Match format like "12 Jun 2024 Wed 20:00"
-            const dateRegex = /^(\d{1,2})\s([A-Za-z]{3})\s(\d{4})\s\w+\s(\d{2}):(\d{2})$/;
-            const match = cleanedDate.match(dateRegex);
-
-            if (match) {
-                const [, day, monthStr, year, hours, minutes] = match;
-
-                // Convert month from string to number
-                const monthMap = {
-                    Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
-                    Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11
-                };
-
-                const month = monthMap[monthStr];
-
-                if (month === undefined) return null; // Invalid month
-
-                // Create a Date object (UTC)
-                const dateObj = new Date(Date.UTC(year, month, day, hours, minutes));
-
-                return dateObj.toISOString(); // Convert to ISO format
-            }
-
-            // If it's already a valid date string, return as is
-            const parsedDate = new Date(dateString);
-            if (!isNaN(parsedDate.getTime())) {
-                return parsedDate.toISOString();
-            }
-
-            return "invalid-date"; // If parsing fails
-        } catch (error) {
-            console.error("Error parsing date:", error);
-            return "invalid-date";
-        }
-    };
-
-
-    const formatTimeDistance = (date) => {
-        const now = new Date();
-        const diffTime = date - now;
-        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-        const diffHours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
-        if (diffDays > 0) {
-            return `Starts in ${diffDays} day${diffDays !== 1 ? 's' : ''}`;
-        } else if (diffHours > 0) {
-            return `Starts in ${diffHours} hour${diffHours !== 1 ? 's' : ''}`;
-        } else {
-            return 'Starting soon';
-        }
-    };
-
+export default function ContestCard({
+    contest,
+    toggleBookmark,
+    isBookmarked,
+    formatedDate,
+    timeRemaining
+}) {
     return (
         <div className="overflow-hidden rounded-lg shadow-md transition-shadow duration-300 hover:shadow-lg bg-white dark:bg-neutral-900 dark:hover:bg-gray-800 flex flex-col min-h-full">
             {/* Card Header */}
@@ -100,12 +43,14 @@ export default function ContestCard({ contest, toggleBookmark, isBookmarked }) {
             {/* Card Content */}
             <div className="px-4 pb-4 border-b border-gray-200 dark:border-gray-800 flex-grow">
                 <div className="space-y-2">
-                    <div className="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                    {formatedDate !== "Invalid Date" &&
+                        <div className="flex items-center text-sm text-gray-600 dark:text-gray-300">
                         <svg className="mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
-                        <span>{formatDate(contest.startTime)}</span>
+                        <span>{formatedDate}</span>
                     </div>
+                    }
                     <div className="flex items-center text-sm text-gray-600 dark:text-gray-300">
                         <svg className="mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -118,7 +63,7 @@ export default function ContestCard({ contest, toggleBookmark, isBookmarked }) {
             {/* Card Footer */}
             <div className="flex justify-between items-center p-4 bg-gray-50 dark:bg-neutral-800">
                 <div className="text-sm text-gray-500 dark:text-gray-300">
-                    {formatTimeDistance(contest.startTime)}
+                    {timeRemaining}
                 </div>
                 <div className="flex space-x-3">
                     {contest.solutionLink && (

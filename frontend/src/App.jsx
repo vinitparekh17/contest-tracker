@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Bookmarks from './pages/BookMark';
+import Bookmarks from './pages/Bookmark';
 import NotFound from './pages/NotFound';
 import AdminPanel from './pages/AdminPanel';
 

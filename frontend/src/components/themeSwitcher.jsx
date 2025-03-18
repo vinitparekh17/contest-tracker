@@ -12,7 +12,7 @@ export default function ThemeSwitcher() {
       <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-900 transition-colors duration-300"></div>
       <div className="relative z-10 transition-all duration-500 ease-out">
         {theme === 'dark' ? (
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400 transform transition-transform duration-500 group-hover:rotate-45" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400 transform transition-transform duration-500 group-hover:rotate-45" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="12" r="5"/>
           <line x1="12" y1="1" x2="12" y2="3"/>
           <line x1="12" y1="21" x2="12" y2="23"/>
@@ -24,7 +24,7 @@ export default function ThemeSwitcher() {
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
         </svg>
         ) : (
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600 transform transition-transform duration-500 group-hover:-rotate-12" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600 transform transition-transform duration-500 group-hover:-rotate-12" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLineJoin="round">
             <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" />
           </svg>
         )}
