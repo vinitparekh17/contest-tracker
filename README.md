@@ -5,8 +5,8 @@
 - [Features](#features)  
 - [APIs](#apis)  
 - [Setup and Deployment](#setup-and-deployment)
-
-![contest-tracker-demo](https://github.com/user-attachments/assets/cd2387f0-04de-4499-a238-95eaea45754e)
+  
+![contest-tracker-demo](https://github.com/user-attachments/assets/cc10b6ca-b215-42fc-93b2-51d169faa74a)
 
 ## Overview  
 **Contest Tracker** is a Node.js web application that fetches and displays upcoming and past coding contests from **Codeforces**, **CodeChef**, and **LeetCode**. It allows filtering contests by platform, bookmarking contests via `localStorage`, and attaching YouTube solution links for past contests. All contest data is stored in **MongoDB**.  
