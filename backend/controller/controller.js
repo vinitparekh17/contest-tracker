@@ -73,13 +73,13 @@ export async function insertSolutionLink(req, res) {
 }
 
 export function loginAdmin(req, res) {
-    const { defaultAdminUser, defaultAdminPassword } = req.body;
+    const { username, password } = req.body;
 
     if (!process.env.ADMIN_USER || !process.env.ADMIN_PASS) {
         return res.status(500).json({ error: "Server configuration error" });
     }
 
-    if (defaultAdminUser === process.env.ADMIN_USER && defaultAdminPassword === process.env.ADMIN_PASS) {
+    if (username === process.env.ADMIN_USER && password === process.env.ADMIN_PASS) {
         return res.status(200).json({ message: "Login successful" });
     }
 
