@@ -234,7 +234,7 @@ async function updateContestSolutionVideos(Contest) {
       // Get all contests without solution links for this platform
       const contests = await Contest.find({ 
         platform, 
-        solutionLink: undefined
+        solutionLink: { $exists: false }
       });
       
       if (contests.length === 0) {

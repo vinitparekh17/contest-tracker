@@ -20,7 +20,7 @@ export async function getContests(_, res) {
 
 export async function getContestsWithoutSolution(_, res) {
     try {
-        const contests = await Contest.find({ solutionLink: null });
+        const contests = await Contest.find({ solutionLink: { $exists: false } });
         res.json(contests);
     } catch (error) {
         console.error("Error getting contests", error);
