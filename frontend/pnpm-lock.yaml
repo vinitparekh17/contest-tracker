@@ -12,17 +12,17 @@ importers:
         specifier: ^4.0.14
         version: 4.0.14(vite@6.2.3(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.7.0))
       react:
-        specifier: ^19.0.0
-        version: 19.0.0
+        specifier: ^19.1.0
+        version: 19.1.0
       react-dom:
         specifier: ^19.0.0
-        version: 19.0.0(react@19.0.0)
+        version: 19.0.0(react@19.1.0)
       react-router-dom:
         specifier: ^7.4.0
-        version: 7.4.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 7.4.0(react-dom@19.0.0(react@19.1.0))(react@19.1.0)
       react-select:
         specifier: ^5.10.1
-        version: 5.10.1(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 5.10.1(@types/react@19.0.10)(react-dom@19.0.0(react@19.1.0))(react@19.1.0)
       tailwindcss:
         specifier: ^4.0.15
         version: 4.0.15
@@ -1143,8 +1143,8 @@ packages:
       react: '>=16.6.0'
       react-dom: '>=16.6.0'
 
-  react@19.0.0:
-    resolution: {integrity: sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ==}
+  react@19.1.0:
+    resolution: {integrity: sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg==}
     engines: {node: '>=0.10.0'}
 
   regenerator-runtime@0.14.1:
@@ -1454,17 +1454,17 @@ snapshots:
 
   '@emotion/memoize@0.9.0': {}
 
-  '@emotion/react@11.14.0(@types/react@19.0.10)(react@19.0.0)':
+  '@emotion/react@11.14.0(@types/react@19.0.10)(react@19.1.0)':
     dependencies:
       '@babel/runtime': 7.26.10
       '@emotion/babel-plugin': 11.13.5
       '@emotion/cache': 11.14.0
       '@emotion/serialize': 1.3.3
-      '@emotion/use-insertion-effect-with-fallbacks': 1.2.0(react@19.0.0)
+      '@emotion/use-insertion-effect-with-fallbacks': 1.2.0(react@19.1.0)
       '@emotion/utils': 1.4.2
       '@emotion/weak-memoize': 0.4.0
       hoist-non-react-statics: 3.3.2
-      react: 19.0.0
+      react: 19.1.0
     optionalDependencies:
       '@types/react': 19.0.10
     transitivePeerDependencies:
@@ -1482,9 +1482,9 @@ snapshots:
 
   '@emotion/unitless@0.10.0': {}
 
-  '@emotion/use-insertion-effect-with-fallbacks@1.2.0(react@19.0.0)':
+  '@emotion/use-insertion-effect-with-fallbacks@1.2.0(react@19.1.0)':
     dependencies:
-      react: 19.0.0
+      react: 19.1.0
 
   '@emotion/utils@1.4.2': {}
 
@@ -2268,58 +2268,58 @@ snapshots:
 
   punycode@2.3.1: {}
 
-  react-dom@19.0.0(react@19.0.0):
+  react-dom@19.0.0(react@19.1.0):
     dependencies:
-      react: 19.0.0
+      react: 19.1.0
       scheduler: 0.25.0
 
   react-is@16.13.1: {}
 
   react-refresh@0.14.2: {}
 
-  react-router-dom@7.4.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+  react-router-dom@7.4.0(react-dom@19.0.0(react@19.1.0))(react@19.1.0):
     dependencies:
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
-      react-router: 7.4.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react: 19.1.0
+      react-dom: 19.0.0(react@19.1.0)
+      react-router: 7.4.0(react-dom@19.0.0(react@19.1.0))(react@19.1.0)
 
-  react-router@7.4.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+  react-router@7.4.0(react-dom@19.0.0(react@19.1.0))(react@19.1.0):
     dependencies:
       '@types/cookie': 0.6.0
       cookie: 1.0.2
-      react: 19.0.0
+      react: 19.1.0
       set-cookie-parser: 2.7.1
       turbo-stream: 2.4.0
     optionalDependencies:
-      react-dom: 19.0.0(react@19.0.0)
+      react-dom: 19.0.0(react@19.1.0)
 
-  react-select@5.10.1(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+  react-select@5.10.1(@types/react@19.0.10)(react-dom@19.0.0(react@19.1.0))(react@19.1.0):
     dependencies:
       '@babel/runtime': 7.26.10
       '@emotion/cache': 11.14.0
-      '@emotion/react': 11.14.0(@types/react@19.0.10)(react@19.0.0)
+      '@emotion/react': 11.14.0(@types/react@19.0.10)(react@19.1.0)
       '@floating-ui/dom': 1.6.13
       '@types/react-transition-group': 4.4.12(@types/react@19.0.10)
       memoize-one: 6.0.0
       prop-types: 15.8.1
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
-      react-transition-group: 4.4.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      use-isomorphic-layout-effect: 1.2.0(@types/react@19.0.10)(react@19.0.0)
+      react: 19.1.0
+      react-dom: 19.0.0(react@19.1.0)
+      react-transition-group: 4.4.5(react-dom@19.0.0(react@19.1.0))(react@19.1.0)
+      use-isomorphic-layout-effect: 1.2.0(@types/react@19.0.10)(react@19.1.0)
     transitivePeerDependencies:
       - '@types/react'
       - supports-color
 
-  react-transition-group@4.4.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+  react-transition-group@4.4.5(react-dom@19.0.0(react@19.1.0))(react@19.1.0):
     dependencies:
       '@babel/runtime': 7.26.10
       dom-helpers: 5.2.1
       loose-envify: 1.4.0
       prop-types: 15.8.1
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
+      react: 19.1.0
+      react-dom: 19.0.0(react@19.1.0)
 
-  react@19.0.0: {}
+  react@19.1.0: {}
 
   regenerator-runtime@0.14.1: {}
 
@@ -2405,9 +2405,9 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  use-isomorphic-layout-effect@1.2.0(@types/react@19.0.10)(react@19.0.0):
+  use-isomorphic-layout-effect@1.2.0(@types/react@19.0.10)(react@19.1.0):
     dependencies:
-      react: 19.0.0
+      react: 19.1.0
     optionalDependencies:
       '@types/react': 19.0.10
 
