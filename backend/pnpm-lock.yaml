@@ -21,8 +21,8 @@ importers:
         specifier: ^4.21.2
         version: 4.21.2
       mongoose:
-        specifier: ^8.13.0
-        version: 8.13.0(socks@2.8.4)
+        specifier: ^8.13.2
+        version: 8.13.2(socks@2.8.4)
       puppeteer:
         specifier: ^24.4.0
         version: 24.4.0
@@ -40,8 +40,8 @@ packages:
     resolution: {integrity: sha512-Ed61U6XJc3CVRfkERJWDz4dJwKe7iLmmJsbOGu9wSloNSFttHV0I8g6UAgb7qnK5ly5bGLPd4oXZlxCdANBOWQ==}
     engines: {node: '>=6.9.0'}
 
-  '@mongodb-js/saslprep@1.2.0':
-    resolution: {integrity: sha512-+ywrb0AqkfaYuhHs6LxKWgqbh3I72EpEgESCw37o+9qPx9WTCkgDm2B+eMrwehGtHBWHFU4GXvnSCNiFhhausg==}
+  '@mongodb-js/saslprep@1.2.1':
+    resolution: {integrity: sha512-1NCa8GsZ+OFLTw5KkKQS22wLS+Rs+y02sgkhr99Pm4OSXtSDHCJyq0uscPF0qA86ipGYH4PwtC2+a8Y4RKkCcg==}
 
   '@puppeteer/browsers@2.8.0':
     resolution: {integrity: sha512-yTwt2KWRmCQAfhvbCRjebaSX8pV1//I0Y3g+A7f/eS7gf0l4eRJoUCvcYdVtboeU4CTOZQuqYbZNS8aBYb8ROQ==}
@@ -681,8 +681,8 @@ packages:
       socks:
         optional: true
 
-  mongoose@8.13.0:
-    resolution: {integrity: sha512-e/iYV1mPeOkg+SWAMHzt3t42/EZyER3OB1H2pjP9C3vQ+Qb5DMeV9Kb+YCUycKgScA3fbwL7dKG4EpinGlg21g==}
+  mongoose@8.13.2:
+    resolution: {integrity: sha512-riCBqZmNkYBWjXpM3qWLDQw7QmTKsVZDPhLXFJqC87+OjocEVpvS3dA2BPPUiLAu+m0/QmEj5pSXKhH+/DgerQ==}
     engines: {node: '>=16.20.1'}
 
   mpath@0.9.0:
@@ -1034,7 +1034,7 @@ snapshots:
 
   '@babel/helper-validator-identifier@7.25.9': {}
 
-  '@mongodb-js/saslprep@1.2.0':
+  '@mongodb-js/saslprep@1.2.1':
     dependencies:
       sparse-bitfield: 3.0.3
 
@@ -1716,13 +1716,13 @@ snapshots:
 
   mongodb@6.15.0(socks@2.8.4):
     dependencies:
-      '@mongodb-js/saslprep': 1.2.0
+      '@mongodb-js/saslprep': 1.2.1
       bson: 6.10.3
       mongodb-connection-string-url: 3.0.2
     optionalDependencies:
       socks: 2.8.4
 
-  mongoose@8.13.0(socks@2.8.4):
+  mongoose@8.13.2(socks@2.8.4):
     dependencies:
       bson: 6.10.3
       kareem: 2.6.3
